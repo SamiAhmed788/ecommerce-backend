@@ -7,7 +7,7 @@ const port = 3000;
 // app.use(cookieParser());
 app.use(express.json());
 app.use(cors({  
-    origin:'', // Replace with your frontend origin
+    origin:'https://ecommerce-project-ten-henna.vercel.app', // Replace with your frontend origin
     credentials: true,
 }));
 
