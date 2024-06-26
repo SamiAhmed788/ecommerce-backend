@@ -1,16 +1,17 @@
-import express from "express"
-import cors from "cors"
+import express from 'express';
+import cors from 'cors';
+
 const app = express();
 const port = 3000;
 
-// Root route
-// app.use(cookieParser());
+// Middleware
 app.use(express.json());
-app.use(cors({  
-    origin:'https://ecommerce-project-ten-henna.vercel.app', // Replace with your frontend origin
-    credentials: true,
+app.use(cors({
+  origin: 'https://ecommerce-project-ten-henna.vercel.app', // Replace with your frontend origin
+  credentials: true,
 }));
 
+// Root route
 app.get('/', (req, res) => {
   res.send('Hello, World!');
 });
@@ -20,12 +21,12 @@ app.get('/about', (req, res) => {
   res.send('This is the about page.');
 });
 
+// Additional headers
 app.use((req, res, next) => {
-    res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-    res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-    next();
-  });
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
 });
+
+// Export the app (no need to start the server here)
+export default app;
