@@ -17,9 +17,7 @@ app.get('/', (req, res) => {
 });
 
 // Another example route
-app.get('/about', (req, res) => {
-  res.send('This is the about page.');
-});
+
 
 // Additional headers
 app.use((req, res, next) => {
@@ -28,5 +26,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/about', (req, res) => {
+    res.send('This is the about page.');
+  });
 // Export the app (no need to start the server here)
 export default app;
