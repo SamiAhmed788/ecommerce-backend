@@ -11,12 +11,12 @@ app.use(cors({
     credentials: true,
 }));
 
-// app.get('/', (req, res) => {
-//   res.send('Hello, World!');
-// });
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
 
 // Another example route
-app.get('/', (req, res) => {
+app.get('/about', (req, res) => {
   res.send('This is the about page.');
 });
 
