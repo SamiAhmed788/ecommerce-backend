@@ -1,9 +1,10 @@
 import express from 'express';
 import cors from 'cors';
+import { dbConnection } from './utils/confg.js';
 
 const app = express();
 const port = 3000;
-
+dbConnection()
 // Middleware
 app.use(express.json());
 app.use(cors({
